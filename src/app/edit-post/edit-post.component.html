@@ -1,0 +1,56 @@
+<md-spinner *ngIf="!post"></md-spinner>
+<md-card class="demo-card demo-basic" *ngIf="post">
+  <form #postForm="ngForm">
+    <md-toolbar color="primary">Edit Post</md-toolbar>
+    <md-card-content>
+      <table style="width: 100%" cellspacing="0">
+        <tr>
+          <td>
+            <md-input required
+                      type="text"
+                      placeholder="Title"
+                      style="width: 50%"
+                      [(ngModel)]="post.title"
+                      name="title"
+                      #title="ngModel"
+            ></md-input>
+            <div [hidden]="title.valid || title.pristine"
+                 class="alert alert-danger">
+              Title is required
+            </div>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <md-textarea required
+                         class="demo-full-width"
+                         placeholder="Content"
+                         style="width: 50%"
+                         [(ngModel)]="post.body"
+                         name="body"
+                         rows="5"
+                         #body="ngModel"
+            ></md-textarea>
+
+            <div [hidden]="body.valid || body.pristine"
+                 class="alert alert-danger">
+              Content is required
+            </div>
+          </td>
+        </tr>
+      </table>
+
+    </md-card-content>
+  </form>
+
+  <md-card-actions layout="row" layout-align="end center">
+    <button (click)="back()" md-raised-button color="primary">Back</button>
+    <button
+      [disabled]="!postForm.form.valid"
+      (click)="save()"
+      type="button"
+      md-raised-button color="warn">Save
+    </button>
+  </md-card-actions>
+</md-card>

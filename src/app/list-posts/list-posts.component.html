@@ -1,0 +1,10 @@
+<md-list>
+  <md-spinner *ngIf="!listPosts"></md-spinner>
+  <md-list-item *ngFor="let post of listPosts">
+    <h3 md-line> {{post.title}} </h3>
+    <p md-line>
+       {{post.body}}
+    </p>
+    <button md-raised-button color="primary" routerLink="/post/{{post.id}}">View</button>
+  </md-list-item>
+</md-list>

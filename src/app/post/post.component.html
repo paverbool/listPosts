@@ -1,0 +1,11 @@
+<md-spinner *ngIf="!post"></md-spinner>
+<md-card *ngIf="post">
+  <md-toolbar color="primary">Post</md-toolbar>
+  <md-card-content>
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <button routerLink="/edit/{{post.id}}" md-raised-button color="primary">Edit</button>
+  </md-card-actions>
+</md-card>
